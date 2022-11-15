@@ -94,7 +94,7 @@ void keeloqAnalyzer::WorkerThread()
             }
             data <<= 1;
         }
-
+        data >>= 1;
 		// looking a Encrypted Portion 32 bits
         mResults->AddResultString( "Encrupted portion" );
         for( U32 i = 0; i < 32; i++ ) 
@@ -114,6 +114,7 @@ void keeloqAnalyzer::WorkerThread()
             }
             data1 <<= 1;
         }
+        data1 >>= 1;
         mKeeloq->Advance( mSampleW_preamb[ 1 ] * 1.5 ); // set to middle
         mResults->AddMarker( mKeeloq->GetSampleNumber(), AnalyzerResults::Stop, mSettings->mInputChannel );
 
